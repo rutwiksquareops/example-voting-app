@@ -16,7 +16,7 @@ WORKDIR /source
 COPY *.csproj .
 RUN dotnet restore -a $TARGETARCH
 
-COPY . .
+COPY ./worker/* .
 RUN dotnet publish -c release -o /app -a $TARGETARCH --self-contained false --no-restore
 
 # app image
